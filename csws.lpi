@@ -238,6 +238,10 @@
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
+        <Filename Value="src\u_sceduler.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
         <Filename Value="src\u_objhelper.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>

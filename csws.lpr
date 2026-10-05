@@ -17,6 +17,7 @@ uses
   , u_safememorystream
   , u_processthread
   , u_objhelper, u_mime_types
+  , u_sceduler
   { you can add units after this };
 
 const
@@ -38,10 +39,17 @@ type
     procedure WriteHelp; virtual;
     function check_addmenu(): Boolean;
     function check_externalcfg(): Boolean;
+    function check_sced(): Boolean;
   public const
     C_IP_DELIMITER = ':=:';
     C_IP_ADDMENU = 'addmenu';
     C_IP_EXTCFG = 'conf';
+    C_IP_SCEDULER = 'sceduler';
+    C_IP_SCEDNEW = 'scednew';
+    C_IP_SCEDDEL = 'sceddel';
+    C_IP_SCEDLIST = 'scedlist';
+    C_IP_SCEDON = 'scedon';
+    C_IP_SCEDOFF = 'scedoff';
   end;
 
 const
@@ -53,6 +61,24 @@ const
        +' --conf="/home/technik/mypersonalconfiguration.conf" :: run with own configuration;'#13#10
        +' --stop :: stop the running application;'#13#10
        +' --envvar :: shows all possibles environmen variables;'#13#10
+       +''#13#10
+
+       +'Scheduler options:'#13#10
+       +' --sceduler :: run the task scheduler together with the web server;'#13#10
+       +' --scednew="<name>'+TSimpleWebServer.C_IP_DELIMITER+'<command>'+TSimpleWebServer.C_IP_DELIMITER+'<period>" ::'
+       +' create a new schedule (command and period are optional);'#13#10
+       +' --sceddel="<name>" :: delete the schedule with its section;'#13#10
+       +' --scedlist :: show all schedules with period, last run and next run;'#13#10
+       +' --scedon="<name>" :: activate the schedule (add the name to [scedule]);'#13#10
+       +' --scedoff="<name>" :: deactivate the schedule (remove the name from [scedule]);'#13#10
+       +''#13#10
+       +'Schedule configuration:'#13#10
+       +' [scedule] :: list of the active schedules, one entry per line as <name>=1;'#13#10
+       +' [scedule.<name>] :: section of one schedule;'#13#10
+       +'   Command -- the command which must be executed;'#13#10
+       +'   Period  -- how often to run: 30s, 15m, 1h, 1h30m, 1d,'#13#10
+       +'              daily, weekly, daily at=03:00, weekly at=22:30;'#13#10
+       +'   LastRun -- date and time of the last run, empty = never run;'#13#10
        +''#13#10
 
        +'HTML references:'#13#10
@@ -70,6 +96,7 @@ const
 procedure TSimpleWebServer.DoRun;
 var
   i : Integer;
+  ScThread: TThdSceduler;
 //  s,p, ErrorMsg: String;
 begin
   // quick check parameters
@@ -81,6 +108,7 @@ begin
   //  Exit;
   //end;
 
+  try
   // parse parameters
   if HasOption('h', 'help') then
   begin
@@ -122,6 +150,13 @@ begin
        Config.readConfigFile(Config.ini_filename);
   end;
 
+  if check_sced() then
+  begin
+    Terminate;
+    Config.Free;
+    Exit;
+  end;
+
   if check_addmenu() then
   begin
     Terminate;
@@ -133,15 +168,25 @@ begin
   ProcessThread := T_ProcessThread.Create('a', true);
   CommandExecutor := TCommandExecutor.Create;
   ProcessThread.Start;
-  Server := TSimpleHTTPServer.Create(nil); // Создаем HTTP-сервер
+  Server := TSimpleHTTPServer.Create(nil); // create the HTTP server
+  ScThread := nil;
   try
     Server.ResourceInstance :=  Self;
     if FileExists(Config.ini_filename) then
        Config.readConfigFile(Config.ini_filename);
+    // start the task scheduler if --sceduler was given
+    if HasOption(C_IP_SCEDULER) then
+      ScThread := TThdSceduler.Create(False);
     Server.init;
-    Server.Active := True; // Активируем сервер
+    Server.Active := True; // activate the server
   finally
-    Server.Free; // Освобождаем ресурсы сервера
+    if Assigned(ScThread) then
+    begin
+      ScThread.Terminate;
+      ScThread.WaitFor;
+      ScThread.Free;
+    end;
+    Server.Free; // release the server resources
     T_ProcessThread.FreeThread(ProcessThread);
     CommandExecutor.Free;
     Config.Free;
@@ -151,6 +196,15 @@ begin
 
   // stop program loop
   Terminate;
+  except
+    // DoRun is called in a loop by TCustomApplication.Run, so every error
+    // must terminate the application instead of being repeated forever
+    on E: Exception do
+    begin
+      WriteLn('Error: ', E.Message);
+      Terminate;
+    end;
+  end;
 end;
 
 procedure TSimpleWebServer.WriteHelp;
@@ -214,6 +268,56 @@ begin
       Result := False;
     end;
 
+  end;
+end;
+
+function TSimpleWebServer.check_sced(): Boolean;
+var
+  s: String;
+  sa: TStringArray;
+  scName: String;
+begin
+  // manage the schedules and exit: --scednew, --sceddel, --scedlist,
+  // --scedon, --scedoff
+  Result := HasOption(C_IP_SCEDLIST)
+      or HasOption(C_IP_SCEDNEW)
+      or HasOption(C_IP_SCEDDEL)
+      or HasOption(C_IP_SCEDON)
+      or HasOption(C_IP_SCEDOFF);
+  if not Result then Exit;
+
+  if not FileExists(Config.ini_filename) then
+    Config.makeConfigFile(Config.ini_filename);
+
+  if HasOption(C_IP_SCEDLIST) then
+    ScedList;
+
+  if HasOption(C_IP_SCEDNEW) then
+  begin
+    //--scednew="<name>" or --scednew="<name>:=:<command>:=:<period>"
+    s := GetOptionValue(C_IP_SCEDNEW);
+    sa := s.Split([C_IP_DELIMITER]);
+    case length(sa) of
+      0: WriteLn('it must be as --scednew="<name>'+C_IP_DELIMITER+'<command>'+C_IP_DELIMITER+'<period>"');
+      1: ScedNew(sa[0], '', '');
+      2: ScedNew(sa[0], sa[1], '');
+      else ScedNew(sa[0], sa[1], sa[2]);
+    end;
+  end;
+
+  if HasOption(C_IP_SCEDDEL) then
+    ScedDelete(GetOptionValue(C_IP_SCEDDEL));
+
+  if HasOption(C_IP_SCEDON) then
+  begin
+    scName := GetOptionValue(C_IP_SCEDON);
+    ScedActivate(scName);
+  end;
+
+  if HasOption(C_IP_SCEDOFF) then
+  begin
+    scName := GetOptionValue(C_IP_SCEDOFF);
+    ScedDeactivate(scName);
   end;
 end;
 
