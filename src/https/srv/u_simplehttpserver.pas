@@ -94,8 +94,8 @@ begin
   try
     //StringStream := TStringStream.Create('', TEncoding.UTF8);
     //try
-    //  StringStream.CopyFrom(FileStream, FileStream.Size); // Копируем данные из FileStream в StringStream
-    //  Result := StringStream.DataString; // Получаем содержимое как строку
+    //  StringStream.CopyFrom(FileStream, FileStream.Size); // Copy the data from FileStream to StringStream
+    //  Result := StringStream.DataString; // Get the content as a string
     //finally
     //  StringStream.Free;
     //end;
@@ -193,7 +193,7 @@ begin
 
       AResponse.Code:= c_html_rec_Code_ok;
       AResponse.ContentType := c_texthtml;
-      AResponse.SendResponse; // Отправляем ответ
+      AResponse.SendResponse; // Send the response
       Exit;
     end;
     Exit;
@@ -209,7 +209,7 @@ begin
     ;
 
     AResponse.ContentType := c_plaintext;
-    AResponse.SendResponse; // Отправляем ответ
+    AResponse.SendResponse; // Send the response
     Exit;
   end;
 
@@ -225,7 +225,7 @@ begin
     end;
 
     AResponse.ContentType := c_plaintext;
-    AResponse.SendResponse; // Отправляем ответ
+    AResponse.SendResponse; // Send the response
     Exit;
   end;
 
@@ -237,7 +237,7 @@ begin
 
       AResponse.Code:= c_html_rec_Code_ok;
       AResponse.ContentType := c_plaintext;
-      AResponse.SendResponse; // Отправляем ответ
+      AResponse.SendResponse; // Send the response
       Exit;
   end;
 
@@ -255,8 +255,8 @@ begin
     AResponse.Content :=      str_html_shell;
     setLength(str_html_shell, 0);
 
-    AResponse.ContentType := c_texthtml; // Устанавливаем тип контента
-    AResponse.SendResponse; // Отправляем ответ
+    AResponse.ContentType := c_texthtml; // Set the content type
+    AResponse.SendResponse; // Send the response
     Exit;
   end
   else
@@ -313,7 +313,7 @@ begin
   else
 
   begin
-    // Возвращаем 404 для неизвестных путей
+    // Return 404 for unknown paths
     AResponse.Code := c_html_rec_Code_notfound;
     AResponse.Content :=
       '<html>' +
@@ -352,8 +352,8 @@ var
   b1,b2 : Boolean;
 begin
   {*****************************************************************************
-   Заголовок меню отделяется от URL символами  :=:
-   Элементы разделяются символами #10
+   The menu caption is separated from the URL by the characters  :=:
+   The items are separated by the character #10
 
    example: 'menu1::/shell?cmd=dir /s Z:\tmp'#13#10'menu2::/shell?cmd=echo.do it'
   ******************************************************************************}
@@ -381,15 +381,15 @@ begin
     end;
   end;
   AResponse.Content :=  str_html_shell;
-  AResponse.ContentType := c_texthtml; // Устанавливаем тип контента
-  AResponse.SendResponse; // Отправляем ответ
+  AResponse.ContentType := c_texthtml; // Set the content type
+  AResponse.SendResponse; // Send the response
 end;
 
 procedure TSimpleHTTPServer.handleMenu(var ARequest: TFPHTTPConnectionRequest;
   var AResponse: TFPHTTPConnectionResponse);
 
   //**************************************
-  //*  запросы управления меню
+  //*  menu control requests
   //*
   //*  /meni?clear&caption1=Start network&cmd1=ifup can0&caption2=Stop network&cmd2=ifdown can0
   //**************************************
@@ -486,8 +486,8 @@ begin
   end;
 
 
-  NewWidth := StrToIntDef(ARequest.QueryFields.Values['width'], 100); // Ширина по умолчанию 100
-  NewHeight := StrToIntDef(ARequest.QueryFields.Values['height'], 100); // Высота по умолчанию 100
+  NewWidth := StrToIntDef(ARequest.QueryFields.Values['width'], 100); // Default width is 100
+  NewHeight := StrToIntDef(ARequest.QueryFields.Values['height'], 100); // Default height is 100
 
   Image := TPicture.Create;
   try
@@ -522,13 +522,13 @@ procedure TSimpleHTTPServer.handleTHfile(aTHFN: String;
   var AResponse: TFPHTTPConnectionResponse);
 begin
   {
-  тут нужны изменения:
-    нужно определить файл ли это с нормального места или из какого то хранилища
-    по префиксу.
-    Например все имиджи будут храниться в расписанных стораджах, которые описаны в
-    конфиге.
+  changes are needed here:
+    it must be detected whether the file comes from a normal place or from some storage
+    by its prefix.
+    For example all images will be stored in the storages described
+    in the configuration file.
 
-    поэтому нужно проверять в имени пути этакий префикс стораджа и поиск по нему
+    so the storage prefix must be looked up in the path name and used for the search
 
 
   Config.asString[Config.C_SEC_APP + Config.C_PAR_TH_DIR] +
@@ -538,8 +538,8 @@ begin
   AResponse.Content :=      str_html_shell;
   setLength(str_html_shell, 0);
 
-  AResponse.ContentType := c_texthtml; // Устанавливаем тип контента
-  AResponse.SendResponse; // Отправляем ответ
+  AResponse.ContentType := c_texthtml; // Set the content type
+  AResponse.SendResponse; // Send the response
 end;
 
 procedure TSimpleHTTPServer.handleUpload(
@@ -665,7 +665,7 @@ begin
   thpath := '.\';
   {$endif}
 
-  Server.Port := 8080; // Устанавливаем порт
+  Server.Port := 8080; // Set the port
   if assigned(Config) then
   begin
     i := Config.asInt[Config.C_SEC_APP + Config.C_PAR_Port];
@@ -678,14 +678,14 @@ begin
     p := Config.C_SEC_APP + Config.C_PAR_TH_DIR;
     s := Config.asString[p];
     i := length(s);
-    if s[i] <> PathDelim then
+    if (i = 0) or (s[i] <> PathDelim) then // an empty value must not be indexed
     begin
 
       Config.asString[p] := s + PathDelim;
     end;
     p := Config.C_SEC_APP + Config.C_PAR_WorkDir;
     s := Config.asString[p];
-    if s[length(s)] <> PathDelim then
+    if (s = '') or (s[length(s)] <> PathDelim) then
     begin
       Config.asString[p] := s + PathDelim;
 
@@ -696,7 +696,12 @@ begin
 
 
 
-  Server.Threaded := True; // Включаем многопоточность
+  Server.Threaded := True; // enable the multithreading
+
+  // Wake up the accept loop once per second, otherwise the main thread stays
+  // blocked in accept() forever and /stop (or --stop) is never able to stop
+  // the application.
+  Server.AcceptIdleTimeout := 1000;
 end;
 
 function TSimpleHTTPServer.get_request_uri(const aURI: string): string;
@@ -762,13 +767,13 @@ end;
 
 
 //begin
-//  Server := TSimpleHTTPServer.Create(nil); // Создаем HTTP-сервер
+//  Server := TSimpleHTTPServer.Create(nil); // Create the HTTP server
 //  try
-//    Server.Port := 8080; // Устанавливаем порт
-//    Server.Threaded := True; // Включаем многопоточность
-//    //WriteLn('HTTP-сервер запущен на порту 8080');
-//    Server.Active := True; // Активируем сервер
+//    Server.Port := 8080; // Set the port
+//    Server.Threaded := True; // Enable multithreading
+//    //WriteLn('HTTP server started on port 8080');
+//    Server.Active := True; // Activate the server
 //  finally
-//    Server.Free; // Освобождаем ресурсы сервера
+//    Server.Free; // Release the server resources
 //  end;
 end.

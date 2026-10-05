@@ -47,14 +47,14 @@ begin
   {$ifdef unix}
   CpuInfo := TStringList.Create;
   try
-    // Читаем содержимое файла /proc/cpuinfo
+    // Read the content of the /proc/cpuinfo file
     CpuInfo.LoadFromFile('/proc/cpuinfo');
-    // Ищем строку с уникальным номером
+    // Search for the line with the serial number
     for Line in CpuInfo do
     begin
-      if Pos('Serial', Line) = 1 then // Ищем строку, начинающуюся с "Serial"
+      if Pos('Serial', Line) = 1 then // Search for the line which begins with "Serial"
       begin
-        Result := Trim(Copy(Line, Pos(':', Line) + 1, Length(Line))); // Извлекаем значение
+        Result := Trim(Copy(Line, Pos(':', Line) + 1, Length(Line))); // Extract the value
         Break;
       end;
     end;
@@ -95,7 +95,7 @@ begin
     FreeEnvironmentStrings(EnvStrings);
   end;
   {$ELSE}
-  // Linux и другие Unix-подобные системы
+  // Linux and other Unix-like systems
   for i := 0 to GetEnvironmentVariableCount-1 do
   begin
     s := GetEnvironmentString(i);
