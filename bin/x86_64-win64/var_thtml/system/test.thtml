@@ -1,0 +1,11 @@
+<body>
+<h1>Environment variables</h1>
+<div>SerialNumber=$(SerialNumber)</div>
+<div>ComSpec=$(ComSpec)</div>
+<div>COMPUTERNAME=$(COMPUTERNAME)</div>
+<div>SHELL=$(SHELL)</div>
+<div>HOME=$(HOME)</div>
+<div>Application.Port=$(APPLICATIONPORT)</div>
+<div>Menu1.Caption=$(MENU1MENUCAPTION)</div>
+<div>Menu1.Command=$(MENU1MENUCOMMAND)</div>
+</body>

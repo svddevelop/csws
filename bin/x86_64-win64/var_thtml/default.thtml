@@ -1,0 +1,6 @@
+<bory>
+	<script>                                           
+		window.parent.requestServer('/menu?default');
+		window.parent.loadMenu();
+	</script>
+</body>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECHTOOL</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 10px;
+      z-index: 1000;
+      text-align: center;
+    }
+    #menuButton {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    #menuButton:hover {
+      background-color: #777;
+    }
+    .menu-list {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 200px;
+      background-color: #444;
+      display: none;
+      z-index: 1000;
+    }
+    .menu-list ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .menu-list ul li {
+      padding: 10px;
+    }
+    .menu-list ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+    .menu-list ul li a:hover {
+      background-color: #666;
+    }
+    .content {
+      margin-top: 60px;
+      height: calc(100vh - 60px);
+      --overflow-y: auto;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <button id="menuButton">☰</button>
+  </div>
+  <div id="menuList" class="menu-list">
+    <ul id="menuItems"></ul>
+  </div>
+  <div class="content">
+    <iframe id="contentFrame" src="" frameborder="0">
+    $(ProductName) ver $(FileVersion)<br>
+    $(Comments)<br>
+    $(LegalCopyright)<br>
+    Device serial number $(SerialNumber)<br>
+    <br>
+    </iframe>
+  </div>
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const menuList = document.getElementById('menuList');
+    const contentFrame = document.getElementById('contentFrame');
+    const menuItems = document.getElementById('menuItems');
+
+		
+	function loadMenu() {
+	  const xhr = new XMLHttpRequest();
+	  xhr.open('GET', '/menulist', true);
+	  xhr.onload = function () {
+		if (xhr.status === 200) {
+		  // Split the data by line breaks and remove the empty lines
+		  const items = xhr.responseText.split('\n').filter(item => item.trim() !== '');
+		  menuItems.innerHTML = ''; // Clear the current menu
+
+		  // Process every line
+		  items.forEach(item => {
+			const [menuName, menuUrl] = item.split(':=:'); // Split by the ':=:' delimiter
+			if (menuName && menuUrl) {
+			  const li = document.createElement('li');
+			  const a = document.createElement('a');
+			  a.href = menuUrl.trim(); // URL from the data
+			  a.textContent = menuName.trim(); // Menu caption
+			  li.appendChild(a);
+			  menuItems.appendChild(li);
+			}
+		  });
+		} else {
+		  console.error('Error reading menu');
+		}
+	  };
+	  xhr.onerror = function () {
+		console.error('Network error');
+	  };
+	  xhr.send();
+	}
+
+   
+    loadMenu();
+
+
+    menuButton.addEventListener('click', () => {
+      if (menuList.style.display === 'block') {
+        menuList.style.display = 'none';
+      } else {
+        loadMenu();
+        menuList.style.display = 'block';
+      }
+    });
+
+
+    menuList.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+        const src = event.target.getAttribute('href');
+        //alert(src);
+        contentFrame.setAttribute('src', src);
+        menuList.style.display = 'none';
+      }
+    });
+
+    contentFrame.setAttribute('src', '/system/info');
+
+  async function requestServer(url, options = {}) {
+    try {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.text();
+      return data; 
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    //throw error; 
+    }
+  }
+
+  </script>
+</body>
+</html>

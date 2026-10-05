@@ -1,0 +1,8 @@
+<body>
+    <br>
+    $(ProductName) ver $(FileVersion)<br>
+    $(Comments)<br>
+    $(LegalCopyright)<br>
+    Device serial number $(SerialNumber)<br>
+    <br>
+</body>

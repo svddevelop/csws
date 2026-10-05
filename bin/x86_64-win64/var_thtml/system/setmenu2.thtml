@@ -1,0 +1,6 @@
+<bory>
+  <script>
+    window.parent.requestServer('/menu?clear&caption1=System information&cmd1=/system/info&caption2=Poweroff&cmd2=/shell?cmd=sudo poweroff&caption3=STOP&cmd3=/stop&caption4=Back&cmd4=/default');
+    window.parent.loadMenu();
+  </script>
+</body>

@@ -1,0 +1,6 @@
+<bory>
+  <script>
+    window.parent.requestServer('/menu?clear&caption1=Upload FOTO VIDEO&cmd1=/uploadfiles/uploadform&caption4=Back&cmd4=/default');
+    window.parent.loadMenu();
+  </script>
+</body>

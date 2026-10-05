@@ -1,0 +1,14 @@
+<body>
+  <script>    
+ window.parent.requestServer('/menu?clear'
+ + '&caption1=down CAN0&cmd1=/shell?cmd=down_can0.sh'
+ + '&caption2=up 250K CAN0&cmd2=/shell?cmd=up_250k_can0.sh'
+ + '&caption3=up 500K CAN0&cmd3=/shell?cmd=up_500k_can0.sh'
+ + '&caption4=up 1000K CAN0&cmd4=/shell?cmd=up_1m_can0.sh'
+ + '&caption5=candump CAN0&cmd5=/shell?cmd=candump_can0.sh'
+ + '&caption6=Info&cmd6=/shell?cmd=can0_stat.sh'
+ + '&caption7=Back&cmd7=/default'
+ );
+    window.parent.loadMenu();
+  </script>
+</body>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <ManyBuildModesSelection Value="ReleaseWin64,ReleaseARCH64,ReleaseLin64"/>
+    <BuildModes Active="DebugWin64"/>
+    <Units>
+      <Unit>
+        <Filename Value="csws.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="39"/>
+        <CursorPos X="37" Y="51"/>
+        <UsageCount Value="166"/>
+        <Bookmarks Count="2">
+          <Item0 Y="158"/>
+          <Item1 Y="240" ID="9"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\u_commandexecutor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_CommandExecutor"/>
+        <EditorIndex Value="9"/>
+        <CursorPos X="46" Y="14"/>
+        <UsageCount Value="166"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_SimpleHTTPServer"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="458"/>
+        <CursorPos X="71" Y="472"/>
+        <UsageCount Value="166"/>
+        <Bookmarks Count="3">
+          <Item0 X="3" Y="521" ID="3"/>
+          <Item1 X="5" Y="593" ID="2"/>
+          <Item2 X="20" Y="302" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\https\srv\u_strparams.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="143"/>
+        <CursorPos X="3" Y="148"/>
+        <UsageCount Value="166"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\u_conf.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="16"/>
+        <CursorPos X="20" Y="8"/>
+        <UsageCount Value="166"/>
+        <Bookmarks Count="1">
+          <Item0 X="27" Y="346" ID="4"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\https\u_httpclient.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="8"/>
+        <CursorPos X="4" Y="19"/>
+        <UsageCount Value="106"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\u_versionsinfo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="7"/>
+        <CursorPos X="32" Y="20"/>
+        <UsageCount Value="106"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\u_safememorystream.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="53" Y="89"/>
+        <UsageCount Value="86"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\u_processthread.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="46"/>
+        <CursorPos Y="73"/>
+        <UsageCount Value="85"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\u_objhelper.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="23"/>
+        <UsageCount Value="84"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\https\u_mime_types.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="79"/>
+        <CursorPos X="56" Y="81"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\packages\fcl-base\src\custapp.pp"/>
+        <UnitName Value="CustApp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="226"/>
+        <CursorPos X="3" Y="239"/>
+        <UsageCount Value="12"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\packages\fcl-base\src\singleinstance.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="41" Y="33"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\rtl\inc\objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="195"/>
+        <CursorPos X="21" Y="210"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\rtl\inc\objpas.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="435"/>
+        <CursorPos X="12" Y="446"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\rtl\inc\resh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="49"/>
+        <CursorPos X="40" Y="64"/>
+        <UsageCount Value="1"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="776"/>
+        <CursorPos X="14" Y="791"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\packages\fcl-res\src\versionresource.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="65"/>
+        <CursorPos X="14" Y="79"/>
+        <UsageCount Value="2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\packages\fcl-res\src\versiontypes.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="71"/>
+        <CursorPos X="3" Y="74"/>
+        <UsageCount Value="2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\lazarus\lcl\lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2214"/>
+        <CursorPos X="3" Y="2229"/>
+        <UsageCount Value="2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\rtl\win\wininc\defines.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1283"/>
+        <CursorPos X="5" Y="1298"/>
+        <UsageCount Value="2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\packages\fcl-web\src\base\httpdefs.pp"/>
+        <UnitName Value="HTTPDefs"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="195"/>
+        <CursorPos X="3" Y="198"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\rtl\objpas\sysutils\syshelph.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="157"/>
+        <CursorPos X="37" Y="158"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Z:\fpcupdeluxe\fpcsrc\rtl\objpas\sysutils\filutilh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="210"/>
+        <CursorPos X="10" Y="235"/>
+        <UsageCount Value="5"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="515" TopLine="501"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="523" TopLine="501"/>
+      </Position>
+      <Position>
+        <Filename Value="csws.lpr"/>
+        <Caret Line="51" Column="37" TopLine="39"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="164" Column="12" TopLine="146"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="461" Column="3" TopLine="436"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="470" Column="48" TopLine="457"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="162" Column="37" TopLine="150"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="500" Column="42" TopLine="485"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="502" Column="21" TopLine="485"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="491" Column="90" TopLine="480"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="493" TopLine="480"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="494" TopLine="480"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="501" Column="20" TopLine="486"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="76" Column="13" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="502" Column="13" TopLine="481"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="494" TopLine="481"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="495" TopLine="481"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="502" TopLine="481"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="486" Column="38" TopLine="482"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="292" Column="5" TopLine="276"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="58" Column="15" TopLine="44"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="679" Column="3" TopLine="672"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="59" Column="65" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="675" Column="34" TopLine="661"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="291" Column="31" TopLine="282"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="59" Column="15" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="702" Column="56" TopLine="701"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="149" Column="14" TopLine="138"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="302" Column="20" TopLine="283"/>
+      </Position>
+      <Position>
+        <Filename Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Caret Line="41" Column="95" TopLine="27"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default">
+        <Mode Name="default"/>
+      </Modes>
+    </RunParams>
+    <HistoryLists>
+      <List Name="LaunchingApplication" Type="File" Count="1">
+        <Item1 Value="C:\WINDOWS\system32\cmd.exe /C ${TargetCmdLine}"/>
+      </List>
+      <List Name="CommandLineParameters" Count="7">
+        <Item1 Value="--help"/>
+        <Item2 Value="--conf=&quot;.\csws.ini&quot; --addmenu=&quot;menu1:=:dir /s z:\tmp\&quot;"/>
+        <Item3 Value="--conf=&quot;.\csws.ini&quot; --addmenu=&quot;menu1:=:command&quot;"/>
+        <Item4 Value="--envvar"/>
+        <Item5 Value="--conf=&quot;.\csws.ini&quot; --addmenu=&quot;menu aa X:=:command 124&quot;"/>
+        <Item6 Value="--conf=&quot;.\csws.ini&quot; --addmenu=&quot;menu1::command&quot;"/>
+        <Item7 Value="-conf=&quot;.\csws.ini&quot; -addmenu=&quot;menu1::command&quot;"/>
+      </List>
+    </HistoryLists>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="csws.lpr"/>
+        <Line Value="242"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="src\u_objhelper.pas"/>
+        <Line Value="22"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="csws.lpr"/>
+        <Line Value="264"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Line Value="552"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="src\https\srv\u_simplehttpserver.pas"/>
+        <Line Value="560"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

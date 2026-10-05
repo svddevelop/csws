@@ -1,0 +1,6 @@
+<bory>
+  <script>
+    window.parent.requestServer('/menu?clear&caption1=WiFi SSID connection&cmd1=/wifi/wificlient&caption3=Back&cmd3=/default');
+    window.parent.loadMenu();
+  </script>
+</body>

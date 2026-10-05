@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="10"/>
+        <CursorPos Y="32"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <Debugger>
+      <Backend Value="{050B4AF3-0921-4A78-A85B-1F41E4B62B7C}"/>
+    </Debugger>
+    <JumpHistory HistoryIndex="13">
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="15" Column="64"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="11"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="23" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="24" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="23" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="25" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="26" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="27" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="28" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="30" Column="39" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="29" Column="38" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="26" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="27" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="verysimplewebserver.lpr"/>
+        <Caret Line="28" TopLine="10"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="verysimplewebserver.lpr"/>
+        <Line Value="26"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>
